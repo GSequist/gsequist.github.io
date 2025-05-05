@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/georgesalapa-web/static/css/main.8d69b5e7.css",
+    "main.js": "/georgesalapa-web/static/js/main.cdedf364.js",
+    "static/js/453.e93c5434.chunk.js": "/georgesalapa-web/static/js/453.e93c5434.chunk.js",
+    "static/media/profile-pic.jpeg": "/georgesalapa-web/static/media/profile-pic.bcdbd48d12f7ffc81fce.jpeg",
+    "static/media/trials-agent.webp": "/georgesalapa-web/static/media/trials-agent.3938eec58114908ba001.webp",
+    "static/media/lunys-agent.webp": "/georgesalapa-web/static/media/lunys-agent.591c4e9884c238046b9a.webp",
+    "static/media/vw-agent.webp": "/georgesalapa-web/static/media/vw-agent.7d322c33b3d0ebeb974d.webp",
+    "index.html": "/georgesalapa-web/index.html",
+    "main.8d69b5e7.css.map": "/georgesalapa-web/static/css/main.8d69b5e7.css.map",
+    "main.cdedf364.js.map": "/georgesalapa-web/static/js/main.cdedf364.js.map",
+    "453.e93c5434.chunk.js.map": "/georgesalapa-web/static/js/453.e93c5434.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d69b5e7.css",
+    "static/js/main.cdedf364.js"
+  ]
+}

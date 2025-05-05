@@ -14,8 +14,8 @@ function Experience() {
       </p>
       <ul>
         <li>
-          built and deployed production-grade LLM applications for major
-          automotive clients (VW group, Audi, Cariad), focusing on business
+          LLM applications for major automotive clients 
+          (VW group, Audi, Cariad), focusing on business
           process automation and cognitive task optimization
         </li>
         <li>
@@ -23,14 +23,10 @@ function Experience() {
           LLM solutions in automotive industry
         </li>
         <li>
-          architected multiple AI-powered applications including automated
+          built multiple AI-powered applications including automated
           document analysis, supply chain optimization, legal document
           comparison agentic applications and code executing agentic
           applications working with variety of data, incl. dataframes (tables)
-        </li>
-        <li>
-          developed full-stack solutions including iOS iPhone applications
-          integrated with custom LLM backends
         </li>
       </ul>
     </div>

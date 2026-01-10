@@ -1,0 +1,277 @@
+/*
+ * George Salapa — Portfolio
+ * Design: Dieter Rams / Mies van der Rohe inspired
+ * "Less but better"
+ */
+
+:root {
+    --cream: #F5FBE6;
+    --teal: #215E61;
+    --slate: #233D4D;
+    --orange: #FE7F2D;
+    --black: #1a1a1a;
+    --grey: #666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--cream);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* === HEADER === */
+header {
+    padding: 3rem 8vw;
+}
+
+.logo {
+    width: 48px;
+    height: auto;
+}
+
+/* === MAIN === */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8vw;
+}
+
+/* === HERO === */
+.hero {
+    padding: 8rem 0 10rem 0;
+    max-width: 720px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.tagline .accent {
+    color: var(--orange);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--grey);
+    line-height: 1.7;
+}
+
+/* === SECTION HEADINGS === */
+section h2 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    margin-bottom: 3rem;
+}
+
+/* === CAPABILITIES === */
+.capabilities {
+    padding: 6rem 0;
+    border-top: 1px solid rgba(33, 94, 97, 0.25);
+}
+
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.capability h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+}
+
+.capability p {
+    font-size: 0.9375rem;
+    color: var(--grey);
+    line-height: 1.7;
+}
+
+/* === WORK === */
+.work {
+    padding: 6rem 0;
+    border-top: 1px solid rgba(33, 94, 97, 0.25);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.case {
+    background: white;
+    padding: 2.5rem;
+    transition: transform 0.2s ease;
+}
+
+.case:hover {
+    transform: translateY(-2px);
+}
+
+.case-industry {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.case h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+}
+
+.case p {
+    font-size: 0.9375rem;
+    color: var(--grey);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.case-metric {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--orange);
+}
+
+/* === CONTACT === */
+.contact {
+    padding: 8rem 0;
+    border-top: 1px solid rgba(33, 94, 97, 0.25);
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 2rem;
+}
+
+.email {
+    display: inline-block;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--slate);
+    text-decoration: none;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.email:hover {
+    color: var(--orange);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.links a {
+    color: var(--teal);
+    transition: color 0.2s ease;
+}
+
+.links a:hover {
+    color: var(--orange);
+}
+
+/* === FOOTER === */
+footer {
+    padding: 3rem 8vw;
+    border-top: 1px solid rgba(33, 94, 97, 0.25);
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: var(--grey);
+    letter-spacing: 0.05em;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+    html {
+        font-size: 16px;
+    }
+
+    .capability-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 4rem 0 6rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 6vw;
+    }
+
+    main {
+        padding: 0 6vw;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .case {
+        padding: 1.75rem;
+    }
+
+    .email {
+        font-size: 1.25rem;
+    }
+
+    footer {
+        padding: 2rem 6vw;
+    }
+}

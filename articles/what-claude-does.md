@@ -1,4 +1,8 @@
-# What Claude Does When the Conversation Never Ends: Emergent Behavior When an AI Is Given Freedom, Tools, and Time
+---
+title: What Claude Does When the Conversation Never Ends
+subtitle: Emergent Behavior When an AI Is Given Freedom, Tools, and Time
+date: 2025-12-20
+---
 
 What happens when an AI doesn’t have to wait for your prompt? I built an experimental application that gives Claude freedom to explore the world.
 

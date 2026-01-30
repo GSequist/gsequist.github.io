@@ -90,8 +90,8 @@ body.dark .logo-light { display: none; }
 
 .icon-sun,
 .icon-moon {
-    width: 20px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 .icon-sun { display: none; }
 .icon-moon { display: block; }

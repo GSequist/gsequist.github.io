@@ -88,11 +88,6 @@ body.dark .logo-light { display: none; }
     margin-left: 0;
 }
 
-.icon-sun,
-.icon-moon {
-    width: 24px;
-    height: 24px;
-}
 .icon-sun { display: none; }
 .icon-moon { display: block; }
 body.dark .icon-sun { display: block; }

@@ -32,7 +32,7 @@ const articleLoad = async () => {
     }
 
     try {
-        const res = await fetch(`/articles/${slug}.md`)
+        const res = await fetch(`articles/${slug}.md`)
         if (!res.ok) throw new Error('Article not found')
         const md = await res.text()
 

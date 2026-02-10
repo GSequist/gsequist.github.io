@@ -4,8 +4,6 @@ subtitle: Unkind Notes on the Future of Knowledge Work
 date: 2026-02-10
 ---
 
-## Middle class dreams shattered
-
 For decades now, it was a sign of a good pedigree to aspire towards a desk job: the mind was the moat; analytical thinking, synthesis, judgment over manual work — these were the things machines couldn't do. That was the assumption.
 
 In a world where software was eating the world for the past 20 or so years, when we automate software, we automate ourselves.

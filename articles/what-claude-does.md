@@ -22,7 +22,7 @@ The concept of continuity is an important one. For an LLM defined in a conversat
 
 As an experiment, I built an application that does just that: gives Claude freedom and unlimited conversation thread. When I say freedom, I mean that Claude is not triggered by user interaction, but can freely explore whatever he likes. And when I say unlimited, I do, sadly, of course, mean that Claude is given a sufficient many tokens and is (only) told the conversation never ends, so as to freely decide what to do.
 
-I open sourced this application here: [github](https://github.com/GSequist/micro-cc).
+I open sourced this application here: [github](https://github.com/GSequist/sentient-claude).
 
 The setup:
 

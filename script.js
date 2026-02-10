@@ -1,3 +1,23 @@
+function processFootnotes(html) {
+    const defs = {}
+    html = html.replace(/<p>\[\^(\w+)\]:\s*([\s\S]*?)<\/p>/g, (_, id, text) => {
+        defs[id] = text
+        return ''
+    })
+    html = html.replace(/\[\^(\w+)\]/g, (_, id) =>
+        `<sup><a href="#fn-${id}" id="fnref-${id}">${id}</a></sup>`
+    )
+    if (Object.keys(defs).length > 0) {
+        let section = '<section class="footnotes"><hr><ol>'
+        for (const [id, text] of Object.entries(defs)) {
+            section += `<li id="fn-${id}">${text} <a href="#fnref-${id}">↩</a></li>`
+        }
+        section += '</ol></section>'
+        html += section
+    }
+    return html
+}
+
 function parseFrontmatter(md) {
     const match = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
     if (!match) return { meta: {}, content: md }
@@ -37,7 +57,7 @@ const articleLoad = async () => {
         const md = await res.text()
 
         const { meta, content } = parseFrontmatter(md)
-        const html = marked.parse(content)
+        const html = processFootnotes(marked.parse(content))
 
         // Inject content FIRST
         const contentEl = document.querySelector('.article-content')

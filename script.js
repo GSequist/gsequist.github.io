@@ -84,14 +84,67 @@ const articleLoad = async () => {
     }
 }
 
-const themeToggle = () => {
-    const toggle = document.querySelector('.theme-toggle')
-    if (!toggle) return
+// === AI VIEW: assemble whole site into one markdown stream ===
+const txt = (el) => el ? el.textContent.trim().replace(/\s+/g, ' ') : ''
 
-    // Check saved preference on load
+const buildProfileMarkdown = (doc) => {
+    let md = `# ${txt(doc.querySelector('.hero h1'))}\n\n`
+    md += `> ${txt(doc.querySelector('.tagline'))}\n\n`
+    const sub = doc.querySelector('.subtitle')
+    md += `${sub ? sub.innerHTML.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : ''}\n\n`
+
+    md += `## What I Build\n\n`
+    doc.querySelectorAll('.capability').forEach(c => {
+        md += `### ${txt(c.querySelector('h3'))}\n${txt(c.querySelector('p'))}\n\n`
+    })
+
+    md += `## Selected Work\n\n`
+    doc.querySelectorAll('.case').forEach(c => {
+        md += `### ${txt(c.querySelector('h3'))} — ${txt(c.querySelector('.case-industry'))}\n`
+        md += `${txt(c.querySelector('p'))}\n`
+        md += `*${txt(c.querySelector('.case-metric'))}*\n\n`
+    })
+
+    md += `## Contact\n\ngeorge@salapa.xyz\n\n`
+    return md
+}
+
+const generateAIView = async () => {
+    const pre = document.querySelector('#ai-md')
+    try {
+        // index.html is the single source of truth — profile + article list
+        const res = await fetch('index.html')
+        if (!res.ok) throw new Error('could not load site')
+        const doc = new DOMParser().parseFromString(await res.text(), 'text/html')
+
+        let md = buildProfileMarkdown(doc)
+        md += `---\n\n# Articles\n`
+
+        const links = [...doc.querySelectorAll('.articles a')]
+        for (const a of links) {
+            const href = a.getAttribute('href') || ''
+            const slug = new URLSearchParams(href.split('?')[1] || '').get('slug')
+            if (!slug) continue
+            const amd = await fetch(`articles/${slug}.md`)
+            if (!amd.ok) continue
+            const { content } = parseFrontmatter(await amd.text())
+            md += `\n\n## ${txt(a)}\n\n${content.trim()}\n\n---\n`
+        }
+
+        pre.textContent = md
+    } catch (err) {
+        pre.textContent = `error: ${err.message}`
+    }
+}
+
+const themeToggle = () => {
+    // Apply saved preference on every page, toggle button or not
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark')
     }
+
+    const toggle = document.querySelector('.theme-toggle')
+    if (!toggle) return
 
     toggle.addEventListener('click', () => {
         document.body.classList.toggle('dark')
@@ -105,5 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only run articleLoad if we're on article page
     if (document.querySelector('.article-content')) {
         articleLoad()
+    }
+
+    // Run AI view assembly if we're on ai.html
+    if (document.querySelector('#ai-md')) {
+        generateAIView()
     }
 })

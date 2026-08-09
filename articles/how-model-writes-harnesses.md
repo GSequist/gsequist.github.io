@@ -1,4 +1,8 @@
-### How a Model Can Write Its Own Harnesses
+---
+title: How a Model Can Write Its Own Harnesses
+subtitle: The Computer Becomes a Place, Not a Program
+date: 2026-08-09
+---
 
 Pains me to say that one of the truest examples of the collapse of software is how frameworks built to orchestrate and govern - ehm, agents, I hate that word - are suddenly reduced to an afterthought, written and executed on the fly by a SoTA model the moment it gets its own box.
 

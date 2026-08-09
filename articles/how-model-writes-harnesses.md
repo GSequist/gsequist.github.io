@@ -4,6 +4,8 @@ subtitle: The Computer Becomes a Place, Not a Program
 date: 2026-08-09
 ---
 
+![a model in a box](/assets/how-model-writes-harnesses/atom.svg)
+
 Pains me to say that one of the truest examples of the collapse of software is how frameworks built to orchestrate and govern - ehm, agents, I hate that word - are suddenly reduced to an afterthought, written and executed on the fly by a SoTA model the moment it gets its own box.
 
 Models are very much at a level where they are actively reshaping the digital world around them, and that should inform how you think about computers now. A model in a box is the fundamental building block: a loop, memory, filesystem, bash. You compose boxes via text passing. The engineering moves to the walls between them, not the logic inside.
@@ -31,6 +33,8 @@ None of those shapes were pre-declared. The model looked at the problem and wrot
 So the model spawns its own loop as subprocesses in a sequence and hierarchy it deems fitting the problem, and then what you ask? Well, first communication. The models can message each other directly, mid-run, without routing everything back through the parent first.
 
 That's the difference between a pipeline and something closer to a team. A pipeline is a fixed pipe - stage two waits for stage one, always, whether or not it actually needed to. A team notices when a peer already has the answer and just asks.
+
+![how a boss spawns, tracks, and messages children in microcc](/assets/how-model-writes-harnesses/architecture.png)
 
 ## The master doesn't forget or how do we restart the chef's loop
 

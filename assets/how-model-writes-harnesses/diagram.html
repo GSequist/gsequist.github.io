@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>diagram</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  svg { width: 100%; max-width: 900px; height: auto; display: block; }
+</style>
+</head>
+<body>
+
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000000"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="560" fill="#ffffff"/>
+
+  <!-- ground plane / filesystem -->
+  <line x1="60" y1="520" x2="840" y2="520" stroke="#000000" stroke-width="2"/>
+
+  <!-- connectors down to ground plane -->
+  <line x1="400" y1="130" x2="400" y2="520" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <line x1="195" y1="320" x2="195" y2="520" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <line x1="710" y1="235" x2="820" y2="520" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <line x1="680" y1="465" x2="680" y2="520" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <circle cx="400" cy="520" r="4" fill="#000000"/>
+  <circle cx="195" cy="520" r="4" fill="#000000"/>
+  <circle cx="820" cy="520" r="4" fill="#000000"/>
+  <circle cx="680" cy="520" r="4" fill="#000000"/>
+
+  <!-- spawn lines (box calling box) -->
+  <line x1="450" y1="130" x2="195" y2="230" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="130" x2="635" y2="230" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="635" y1="320" x2="680" y2="380" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- peer messaging (bidirectional) -->
+  <line x1="270" y1="275" x2="560" y2="275" stroke="#000000" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <!-- parent box -->
+  <rect x="370" y="30" width="160" height="100" rx="12" fill="#ffffff" stroke="#000000" stroke-width="2.5"/>
+  <path d="M450,56 A24,24 0 1,1 429.22,68" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- child 1 -->
+  <rect x="120" y="230" width="150" height="90" rx="12" fill="#ffffff" stroke="#000000" stroke-width="2.5"/>
+  <path d="M195,255 A20,20 0 1,1 177.68,265" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- child 2 -->
+  <rect x="560" y="230" width="150" height="90" rx="12" fill="#ffffff" stroke="#000000" stroke-width="2.5"/>
+  <path d="M635,255 A20,20 0 1,1 617.68,265" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- grandchild -->
+  <rect x="610" y="380" width="140" height="85" rx="10" fill="#ffffff" stroke="#000000" stroke-width="2.5"/>
+  <path d="M680,404 A18,18 0 1,1 664.41,413" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>
+
+</body>
+</html>

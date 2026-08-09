@@ -14,7 +14,9 @@ The invention called claude code is the primitives, not the product. Memory, fil
 
 This, however, is immensely powerful and turns most of the previous patterns on its head. Previously carefully crafted agentic graph, for example, can be folded to nothing more than a box calling another box.
 
-Concretely: the model opens a shell, and the command it runs is itself - another instance of the same loop, headless, pointed at its own folder, talking back through a file it writes to. No SDK for this. No orchestrator watching from outside. Bash doing what bash has always done: start a process, then get out of the way. 
+Concretely: the model opens a shell, and the command it runs is itself - another instance of the same loop, headless, pointed at its own folder, talking back through a file it writes to. No SDK for this. No orchestrator watching from outside. Bash doing what bash has always done: start a process, then get out of the way.
+
+This is exactly what runs in [microcc](https://pypi.org/project/micro-cc/), a minimal harness I built with Claude. A minimal harness that is surprisingly capable, and that I use every day for coding, but more importantly solving soul work with coding.
 
 ## The graph is written, not configured
 

@@ -147,6 +147,55 @@ section h2 {
     margin-bottom: 3rem;
 }
 
+/* paper */
+.paper {
+    padding: 2rem 0 3rem 0;
+}
+
+.paper-card {
+    background: white;
+    padding: 2.5rem;
+}
+
+body.dark .paper-card {
+    background: #262626;
+}
+
+.paper-venue {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.paper-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+}
+
+.paper-card p {
+    font-size: 0.9375rem;
+    color: var(--grey);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.paper-link {
+    display: inline-block;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--orange);
+}
+
+.paper-link:hover {
+    color: var(--teal);
+}
+
 /* articles */
 .articles {
     padding: 2rem 0;

@@ -112,7 +112,7 @@ The hook system covers a lot of ground. 26 moments in the loop, several I hadn't
 
 microcc is the harness I built myself, the reason I went reading through all the others in the first place. Everything above is a coding agent that happens to generalize. microcc was never coding-first. It's running on clients doing CRM work, accounting, and general operations, none of it code. Code is model's hands for knowledge work; that is the premise of microcc.
 
-It's also the smallest of the six by a wide margin, on purpose. Plain Python, no build step, nothing like bazel or tsdown or a Cordis plugin system sitting underneath it. Small enough that reading the whole loop is an afternoon, not a research project, which matters more than it sounds like once a client is trusting it to run a shell against their own systems. Distribution is `pip install micro-cc`. Nothing else in this piece gets there in one command.
+It's also the smallest of the six by a wide margin, on purpose. Plain Python, no build step, nothing like bazel or tsdown or a Cordis plugin system sitting underneath it. Small enough that reading the whole loop is an afternoon, not a research project, which matters more than it sounds like once a client is trusting it to run a shell against their own systems. Distribution is `pip install micro-cc`. 
 
 Headless isn't a stripped-down mode bolted on for demos, it's the exact same code path interactive use runs, just pointed at a folder instead of a terminal. Drop it into a container and it runs, no gateway process, no web frontend, no separate infrastructure to stand up first.
 

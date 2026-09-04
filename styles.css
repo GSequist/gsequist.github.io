@@ -435,6 +435,88 @@ body.dark .case {
     color: var(--orange);
 }
 
+/* === NEWSLETTER === */
+.newsletter {
+    padding: 6rem 0;
+    border-top: 1px solid rgba(33, 94, 97, 0.25);
+    max-width: 480px;
+}
+
+.newsletter .subtitle {
+    margin-bottom: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(33, 94, 97, 0.3);
+    background: white;
+    color: var(--black);
+    font-family: inherit;
+    font-size: 0.9375rem;
+}
+
+body.dark .newsletter-form input[type="email"] {
+    background: #262626;
+    border-color: rgba(77, 182, 172, 0.3);
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--teal);
+}
+
+.newsletter-form button {
+    padding: 0.75rem 1.5rem;
+    background: var(--slate);
+    color: var(--cream);
+    border: none;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+    background: var(--orange);
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.newsletter-status {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--grey);
+    min-height: 1.2em;
+}
+
+.newsletter-toggle {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+}
+
+.newsletter-toggle a {
+    color: var(--grey);
+}
+
+.newsletter-toggle a:hover {
+    color: var(--orange);
+}
+
 /* === CONTACT === */
 .contact {
     padding: 8rem 0;
@@ -584,6 +666,10 @@ footer p {
 
     .email {
         font-size: 1.25rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
     }
 
     footer {

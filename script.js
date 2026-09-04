@@ -137,6 +137,50 @@ const generateAIView = async () => {
     }
 }
 
+const NEWSLETTER_URL = 'https://nkdsxcz4bgnwuwupd6yilr3auu0pnlhp.lambda-url.us-east-1.on.aws/'
+
+const newsletterForm = () => {
+    const form = document.querySelector('#newsletter-form')
+    if (!form) return
+
+    const status = document.querySelector('.newsletter-status')
+    const button = form.querySelector('button')
+    const toggleLink = document.querySelector('#newsletter-toggle-link')
+    let mode = 'subscribe'
+
+    toggleLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        mode = mode === 'subscribe' ? 'unsubscribe' : 'subscribe'
+        button.textContent = mode === 'subscribe' ? 'Subscribe' : 'Unsubscribe'
+        toggleLink.textContent = mode === 'subscribe' ? 'unsubscribe instead' : 'subscribe instead'
+        status.textContent = ''
+    })
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const email = form.email.value.trim()
+        status.textContent = mode === 'subscribe' ? 'subscribing...' : 'unsubscribing...'
+
+        try {
+            const res = mode === 'subscribe'
+                ? await fetch(NEWSLETTER_URL, {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ email, website: form.website.value })
+                })
+                : await fetch(`${NEWSLETTER_URL}?email=${encodeURIComponent(email)}`)
+
+            const data = await res.json()
+            if (!res.ok) throw new Error(data.error || 'something went wrong')
+
+            status.textContent = mode === 'subscribe' ? 'subscribed — thanks.' : 'unsubscribed.'
+            form.reset()
+        } catch (err) {
+            status.textContent = `error: ${err.message}`
+        }
+    })
+}
+
 const themeToggle = () => {
     // Apply saved preference on every page, toggle button or not
     if (localStorage.getItem('theme') === 'dark') {
@@ -154,6 +198,7 @@ const themeToggle = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     themeToggle()
+    newsletterForm()
 
     // Only run articleLoad if we're on article page
     if (document.querySelector('.article-content')) {

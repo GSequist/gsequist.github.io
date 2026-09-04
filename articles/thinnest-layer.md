@@ -1,4 +1,8 @@
-### The Thinnest Layer Wins
+---
+title: Thinnest Layer Wins
+subtitle: Simplicity Over Engineering in a Post-AI World
+date: 2026-07-03
+---
 
 We are at a strange and slightly frightening moment in history.
 

@@ -16,6 +16,18 @@ Most of these concepts come from Anthropic. They look simple, but that is only t
 
 A new primitive of software engineering. Whereas in past, model was treated as a mere decoration on top, a layer called onto existing tech stack to answer a question, the present paradigm is to always spawn model inside its own box and give it the latitude to loop, explore its latent space, reason longer, invent ways to recover from mistakes, iterate and decide when to stop. A concept so simple, and so heavily relying on the ability of model, that it has become something of a joke; a meme contrasting the very little human engineer is expected to do with the abnormality of feats frontier models can do.
 
+Strip away all six implementations and the mechanism underneath is the same handful of moves, repeated. The loop sends the model everything it currently knows, the model answers with either a tool call or a final message, a tool call gets executed and its result handed back in, and the whole thing repeats until the model stops asking for tools. Nothing clever. The cleverness is entirely in what the model does with each turn.
+
+"Everything it currently knows" splits into two pieces every harness below treats differently: a fixed part - system prompt, tool schemas, whatever loaded once at the start - and a growing part, the transcript so far. The fixed part barely changes across a session. The growing part gets one more entry appended to its tail on every turn.
+
+![the loop and its cache](assets/loop-engineering-harnesses/loop-and-caching.png)
+
+That split matters because of caching. A provider caches a prompt's internal state up to the first token that differs from something already processed - a prefix match, nothing fancier. Match the whole prefix and only the new tail gets computed. Change one byte anywhere in that prefix and the match ends there; everything after it, cached or not, gets recomputed.
+
+Which is why where new content lands changes what it costs. Prepend something - a new instruction stitched in front of the system prompt, a reordered tool list - and the entire prefix stops matching; the next request reprocesses from token zero. Append it - tack it onto the tail, the way every harness here treats a finished turn - and the prefix before it is untouched; only the new tokens are new work. Insert it into the middle - rewrite an old message, splice something into a turn that already happened - and everything downstream of that point shifts position. Same bytes, same meaning, cold cache anyway; a token's identity to the cache is where it sits, not what it says.
+
+That's the entire reason the append-only discipline shows up in every harness below, worded differently each time. It isn't a style preference. It's the cheapest way to run a loop.
+
 ## Bash is All You Need
 
 Frontier models thrive on shell usage. Writing a shell command is in model's reptile brain, a deeply inprinted memorized knowledge. A loop without a bash is teethless.

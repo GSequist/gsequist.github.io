@@ -63,6 +63,19 @@ const articleLoad = async () => {
         const contentEl = document.querySelector('.article-content')
         contentEl.innerHTML = html
 
+        // Render LaTeX formulas. No single-$ delimiter: articles are full of
+        // dollar amounts ($50,000 etc), which would get eaten as inline math.
+        // Use $$...$$ for display math, \(...\) for inline math instead.
+        if (window.renderMathInElement) {
+            renderMathInElement(contentEl, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true },
+                ],
+            })
+        }
+
         // Generate TOC from actual DOM (so IDs persist)
         const toc = generateTOC(contentEl)
 

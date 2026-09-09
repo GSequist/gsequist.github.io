@@ -6,7 +6,7 @@ date: 2026-09-08
 
 ![cover](/assets/hunt-for-highest-margin-problem/cover.png)
 
-> Editorial note: All em-dashes in this article were human generated. Also, editorial note, Claude has absolutely help me to understand and re-explain concepts in this article, 10x-ing my mediocre IQ. 
+> Editorial note: All em-dashes in this article were human generated. Also, editorial note, Claude has absolutely helped me to understand and re-explain concepts in this article, 10x-ing my mediocre IQ. 
 
 Unapologetically, it is very fun (if you have no stake in the game) to observe AI labs' current obsession with solving science problems by pointing their giant models at them. Fun because out of all sciences, they chose math — the one every AI doomer swore by, pointing fingers, explaining why LLMs can't solve basic calculations. Now demolished, seemingly with ease, one problem after another.
 

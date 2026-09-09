@@ -10,7 +10,7 @@ date: 2026-09-08
 
 Unapologetically, it is very fun (if you have no stake in the game) to observe AI labs' current obsession with solving science problems by pointing their giant models at them. Fun because out of all sciences, they chose math — the one every AI doomer swore by, pointing fingers, explaining why LLMs can't solve basic calculations. Now demolished, seemingly with ease, one problem after another.
 
-First, OpenAI announced 10 problems solved — an internal, unreleased model they call Astra took on ten open problems in math and theoretical computer science, each stuck for a decade or more with no progress: sphere packing bounds, group theory counterexamples, circuit complexity lower bounds, Ramsey numbers, among others. Each came with a Lean-formalized proof, checkable by machine. As of this writing, not one has cleared peer review, and there is already a credit dispute among mathematicians.
+First, OpenAI announced 10 problems solved — astra took on ten open problems in math and theoretical computer science, each stuck for a decade or more with no progress: sphere packing bounds, group theory counterexamples, circuit complexity lower bounds, Ramsey numbers, among others. Each came with a Lean-formalized proof, checkable by machine. As of this writing, not one has cleared peer review, and there is already a credit dispute among mathematicians.
 
 Then, Anthropic — one of its staff, Jarred, a non-mathematician — in a somewhat sympathetic cluelessness pointed Claude at the Riemann hypothesis and said "take a real stab at it," followed by the more educated "keep going" and "believe in yourself." Claude didn't solve it (nobody has, not for $1M, not ever). But it did push the proven lower bound on how many of the zeta function's zeros sit exactly where the hypothesis says they should — a separate, decades-old subproblem — from 41.6% up to 67.2%. What that actually means, with diagrams, is below the line[^1].
 
@@ -44,13 +44,13 @@ Models allow you to immensely cheaply synthesize *libraries* of previous knowled
 
 ## Backtest via Falsification
 
-Strip the math away and what's left is a method, not a discovery. Call it Backtest-Gated Search. A specialist assembles an archive of past cases where the true outcome is already, provably known. They state one precise rule: a candidate approach is disqualified the moment it gets even one trusted historical case wrong. Only then does Claude, in code, generate many candidate models and mechanically kill every one that fails the backtest. Survivors get stress-tested by more code trying to break them, not more prose praising them.
+Rip out the math and you will be left with a method. Call it Backtest-Gated Search. A specialist assembles an archive of past cases where the true outcome is already, provably known. They state one precise rule: a candidate approach is disqualified the moment it gets even one trusted historical case wrong. Only then does Claude, in code, generate many candidate models and mechanically kill every one that fails the backtest. Survivors get stress-tested by more code trying to break them. Code > prose.
 
 What does this mean outside science? This needs zero math, and it is entirely code-centric — every step is generate, run, check. Code is hands. Prose is only allowed as a mediator between code executions, strictly factual, never persuasive.
 
 ## Low Hanging Fruit That I Shall Not Touch
 
-Let us go over this one quickly and carefully, so I don't embarrass myself, but it is out there hanging too obvious, and I have to. An embarassingly analogous problem comes from, no surprises, finance. It is, after all, exact math. 
+Let us go over this one quickly and carefully, so I don't embarrass myself, but it is out there hanging too obvious, and I have to. An analogous problem comes from, no surprises, finance. It is, after all, exact math. 
 
 Assume two stocks, both swinging about 2% a day on their own (variance 4 each). Hold an airline and an oil stock together and they move in opposite directions, since an oil spike hurts airline profits, so the combined risk isn't 4 + 4 = 8, it's 8 minus twice their covariance, landing around 3.2. Less than half. That gap between 8 and 3.2 is hedging. Flip the correlation (a second airline stock instead of an oil stock) and instead of subtracting you add, landing at 12.8 — same two stocks, same individual risk, now *four times the combined risk*, purely because they now move together, not in opposite directions.
 
@@ -80,7 +80,7 @@ This is the shift: 10x your cognitive power, not your expertise. Concretely, her
 
 The tests only catch a model that's wrong in a way you already thought to check for. Claude's zero zeta math proof has the exact same hole: a computer can confirm a proof is logically airtight, it cannot confirm the proof is about the right question. Same gap, every time, math or ecommerce.
 
-Here's what we're actually doing, honestly: pointing at a model that predicts a promo's real revenue impact before you run it, built and stress-tested against your own company's historical experiments. That's the deliverable. A shift in what's now possible that I'm gesturing at, nothing more. The point of this section: there's a forecasting model sitting unbuilt in your data whatever it is, waiting for someone who can hold the problem in their head.
+Here's what we're actually doing: pointing at a model that predicts a promo's real revenue impact before you run it, built and stress-tested against your own company's historical experiments. That's the deliverable. A shift in what's now possible that I'm gesturing at, nothing more. The point of this section: there's a forecasting model sitting unbuilt in your data whatever it is, waiting for someone who can hold the problem in their head.
 
 ## Now Decompress Boy
 
